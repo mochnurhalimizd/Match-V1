@@ -164,7 +164,11 @@ class MatchNewLocalities:
         QUERY = self.db.query \
             .update(PropertiesModel) \
             .where(
-                PropertiesModel.id == propertyID).values(localityMVId= newLocalityID)
+                PropertiesModel.id == propertyID
+            ) \
+            .values({
+                'localityMVId': newLocalityID
+            }).commit()
 
     def run(self):
 

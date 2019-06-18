@@ -64,7 +64,7 @@ class DatabaseQueryAbstract(ABC):
         pass
     
     @abstractmethod
-    def update(self, *args: str):
+    def update(self, model):
         """
         Add where clause
         """

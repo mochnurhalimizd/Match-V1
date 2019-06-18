@@ -74,14 +74,17 @@ class MySQLDatabaseQuery(DatabaseQueryAbstract):
 
         return self
 
-    def values(self, model: Any):
+    def values(self, value):
         """
         Add join clause
         :param model: Any
         """
-        self.exec = self.exec.update(model)
+        self.exec = self.exec.update(value)
 
         return self
+
+    def commit(self):
+        self.connection.session.commit()
 
     def limit(self, limit: int):
         """
